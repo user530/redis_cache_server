@@ -1,8 +1,5 @@
+import './app/env';
 import { app } from './app/app';
-import dotenv from 'dotenv';
-
-// Set up the use of env variables
-dotenv.config()
 
 // Port value
 const defaultPort = 3000;
