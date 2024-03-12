@@ -1,8 +1,28 @@
-export const getAllPhotosMsg = async (): Promise<string> => 'Get all photos route fired!';
+import axios, { AxiosResponse } from 'axios';
 
-export const getSinglePhotoMsg = async (photoId: string): Promise<string> => {
-    if (Number.isNaN(parseInt(photoId)))
-        throw new Error('photoId must be a number!');
+interface Photo {
+    albumId: number;
+    id: number;
+    title: string;
+    url: string;
+    thumbnailUrl: string;
+}
 
-    return `Get single photo route fired! Id - ${parseInt(photoId)}`
+const BASE_URL = 'https://jsonplaceholder.typicode.com/photos';
+
+/**
+ * Simple function with a general high response time, to test caching
+ * @param albumId Album Id, 
+ * @returns Array of photos from the album with param ID
+ */
+export const fetchAlbumPhotos = async (albumId?: string): Promise<Photo[]> => {
+    const res: AxiosResponse<Photo[]> = await axios.get(BASE_URL, { params: { albumId } });
+
+    return res.data;
+};
+
+export const fetchSinglePhoto = async (photoId: string): Promise<Photo> => {
+    const res: AxiosResponse<Photo> = await axios.get(`${BASE_URL}/${photoId}`)
+
+    return res.data;
 };
