@@ -1,6 +1,6 @@
 import express, { Express } from 'express';
 import { photosRouter } from '../routers/photos';
-import { errorLogger } from '../middleware/error-logger';
+import { errorLogger } from '../middlewares/error-logger';
 import 'express-async-errors';
 const cors = require('cors');
 
