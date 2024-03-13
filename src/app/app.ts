@@ -8,10 +8,12 @@ import cors from 'cors';
 export const app: Express = express();
 
 // Use middleware
-app.use(errorLogger);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Set up router
 app.use('/photos', photosRouter);
+
+// Error handler middleware
+app.use(errorLogger);
