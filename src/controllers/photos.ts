@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { fetchAlbumPhotos, fetchSinglePhoto } from '../services/photos';
+import { fetchAlbumPhotos, fetchSinglePhoto } from '../services/photos.js';
 
 export const getAllPhotos = async (req: Request, res: Response) => {
     const { albumId } = req.query;

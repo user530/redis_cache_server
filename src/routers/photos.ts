@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getAllPhotos, getSinglePhoto } from '../controllers/photos';
+import { getAllPhotos, getSinglePhoto } from '../controllers/photos.js';
 
 export const photosRouter = Router();
 

@@ -1,8 +1,8 @@
 import express, { Express } from 'express';
-import { photosRouter } from '../routers/photos';
-import { errorLogger } from '../middlewares/error-logger';
+import { photosRouter } from '../routers/photos.js';
+import { errorLogger } from '../middlewares/error-logger.js';
 import 'express-async-errors';
-const cors = require('cors');
+import cors from 'cors';
 
 // App instance
 export const app: Express = express();

@@ -1,5 +1,5 @@
-import './app/env';
-import { app } from './app/app';
+import './app/env.js';
+import { app } from './app/app.js';
 
 // Port value
 const defaultPort = 3000;
