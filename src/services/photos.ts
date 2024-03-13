@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { redisClient } from '../models/redis';
+import { redisClient } from '../models/redis.js';
 
 interface Photo {
     albumId: number;
@@ -18,7 +18,7 @@ const BASE_URL = 'https://jsonplaceholder.typicode.com/photos';
  */
 export const fetchAlbumPhotos = async (albumId?: string): Promise<Photo[]> => {
     const res: AxiosResponse<Photo[]> = await axios.get(BASE_URL, { params: { albumId } });
-    const client = await redisClient;
+    const client = redisClient;
     console.log(await client.KEYS('*'))
     return res.data;
 };
